@@ -3,10 +3,7 @@
 contains helper function for pagination
 and Server class
 """
-
-
 import csv
-import math
 from typing import List
 from typing import Tuple
 
@@ -50,6 +47,14 @@ class Server:
         return (start_index, stop_index)
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        method to get the range of pages to return as a list of list
+        Args:
+            page(int): number of pages to return
+            page_size(int): size of data per page
+        Returns:
+                List(List): a list of list data
+        """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         self.dataset()
