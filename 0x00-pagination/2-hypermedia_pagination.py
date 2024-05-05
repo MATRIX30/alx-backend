@@ -91,8 +91,11 @@ class Server:
                                                              page_size) else 0
         hyper_data["page"] = page
         hyper_data["data"] = self.get_page(page, page_size)
-        hyper_data["next_page"] = page + 1 if self.get_page(
-            page, page_size) else None
+        # hyper_data["next_page"] = page + 1 if self.get_page(
+        #      page, page_size) else None
+        end = self.index_range(page, page_size)[1]
+        hyper_data["next_page"] = page + 1 if end < len(
+            self.dataset()) else None
         hyper_data["prev_page"] = page - 1 if page - 1 > 0 else None
         hyper_data["total_pages"] = math.ceil(len(self.dataset()) / page_size)
         return hyper_data
