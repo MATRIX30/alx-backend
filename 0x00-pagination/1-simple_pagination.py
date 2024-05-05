@@ -28,7 +28,7 @@ class Server:
             self.__dataset = dataset[1:]
 
         return self.__dataset
-    
+
     @staticmethod
     def index_range(page: int, page_size: int) -> Tuple:
         """
@@ -38,7 +38,7 @@ class Server:
                     page_size: The size of the page
             Returns:
                     Tuple(int,int): returns a tuple of size 2 containing the
-                                    start and stop index corresponding to the range
+                    start and stop index corresponding to the range
                                     of indexes
         """
         stop_index = 0
@@ -54,5 +54,5 @@ class Server:
         self.dataset()
         if page_size > len(self.__dataset):
             return []
-        start, stop = self.index_range(page, page_size)
+        start, stop = Server.index_range(page, page_size)
         return self.__dataset[start:stop]
