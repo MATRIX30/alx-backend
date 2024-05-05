@@ -30,7 +30,7 @@ class Server:
         return self.__dataset
 
     @staticmethod
-    def index_range(page: int, page_size: int) -> Tuple:
+    def index_range(page: int, page_size: int) -> Tuple[int, int]:
         """
         Helper function to help in pagination
         Args:
@@ -40,6 +40,7 @@ class Server:
                     Tuple(int,int): returns a tuple of size 2 containing the
                     start and stop index corresponding to the range
                                     of indexes
+                    List([]): empty list if page size is out of range
         """
         stop_index = 0
         for i in range(page):
